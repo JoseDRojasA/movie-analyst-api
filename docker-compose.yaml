@@ -1,0 +1,13 @@
+version: "3.8"
+services:
+  demo_db:
+    image: "mysql:5.7"
+    container_name: "demo_db"
+    volumes:
+      - ./volumes/db/:/var/lib/mysql
+      - ./volumes/conf.d/:/etc/mysql/conf.d
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=movie_db
+    ports:
+      - 3305:3306
